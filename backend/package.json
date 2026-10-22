@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "node --watch server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "db:init": "node scripts/init-db.js",
+    "test:db": "node --test tests/database.test.js"
   },
   "engines": {
     "node": ">=22.12.0"
