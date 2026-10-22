@@ -1,13 +1,14 @@
--- Ejecutar una sola vez sobre la base adivina_numero previamente creada.
+-- Crea los objetos faltantes sin borrar los datos existentes.
+-- IF NOT EXISTS no modifica tablas existentes: cambios futuros requieren migraciones.
 
-CREATE TABLE partidas (
+CREATE TABLE IF NOT EXISTS partidas (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     iniciada_en TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
     finalizada_en TIMESTAMPTZ,
     ganada BOOLEAN NOT NULL DEFAULT FALSE
 );
 
-CREATE TABLE intentos (
+CREATE TABLE IF NOT EXISTS intentos (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     partida_id INTEGER NOT NULL REFERENCES partidas(id),
     numero INTEGER NOT NULL CHECK (numero BETWEEN 1 AND 100),
@@ -16,4 +17,4 @@ CREATE TABLE intentos (
     creado_en TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX idx_intentos_partida ON intentos(partida_id);
+CREATE INDEX IF NOT EXISTS idx_intentos_partida ON intentos(partida_id);
