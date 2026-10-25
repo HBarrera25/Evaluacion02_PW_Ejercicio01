@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS partidas (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  iniciada_en TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  finalizada_en TIMESTAMPTZ,
+  ganada BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS intentos (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  partida_id BIGINT NOT NULL REFERENCES partidas(id) ON DELETE CASCADE,
+  numero INTEGER NOT NULL CHECK (numero BETWEEN 1 AND 100),
+  resultado TEXT NOT NULL CHECK (resultado IN ('correcto', 'mayor', 'menor')),
+  creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS intentos_partida_id_idx ON intentos(partida_id);
