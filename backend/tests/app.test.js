@@ -20,7 +20,7 @@ before(async () => {
       return partida;
     },
     async listarPartidas() {
-      return [{ id: 1, intentos: 1 }];
+      return [{ id: 1, total_intentos: 1, intentos_fallidos: 1 }];
     },
   };
   const app = crearAplicacion({
@@ -103,6 +103,8 @@ test("expone el historial y responde 404 a rutas desconocidas", async () => {
   const historyResponse = await fetch(`${baseUrl}/partidas`);
   const missingResponse = await fetch(`${baseUrl}/no-existe`);
 
-  assert.deepEqual(await historyResponse.json(), [{ id: 1, intentos: 1 }]);
+  assert.deepEqual(await historyResponse.json(), [
+    { id: 1, total_intentos: 1, intentos_fallidos: 1, intentos: 1 },
+  ]);
   assert.equal(missingResponse.status, 404);
 });

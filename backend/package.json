@@ -6,6 +6,7 @@
     "dev": "node --watch server.js",
     "start": "node server.js",
     "db:init": "node scripts/init-db.js",
+    "test": "node --test tests/app.test.js",
     "test:db": "node --test tests/database.test.js"
   },
   "engines": {

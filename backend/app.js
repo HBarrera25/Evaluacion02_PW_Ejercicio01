@@ -73,7 +73,12 @@ function crearAplicacion({ repository, partidaInicial, randomNumber = generarNum
   app.get("/partidas", async (_req, res, next) => {
     try {
       const partidas = await repository.listarPartidas();
-      return res.status(200).json(partidas);
+      return res.status(200).json(
+        partidas.map((partida) => ({
+          ...partida,
+          intentos: partida.total_intentos,
+        })),
+      );
     } catch (error) {
       return next(error);
     }
