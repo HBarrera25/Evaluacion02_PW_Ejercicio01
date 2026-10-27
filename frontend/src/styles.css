@@ -1,1 +1,45 @@
-/* Pendiente: agregar los estilos del juego. */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #eef2f7;
+  color: #172033;
+}
+
+.juego {
+  max-width: 640px;
+  border: 0;
+  border-radius: 16px;
+}
+
+.historial {
+  padding-left: 0;
+}
+
+.intento {
+  padding: 14px 16px;
+}
+
+.intento > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.intento .badge {
+  flex-shrink: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+@media (max-width: 480px) {
+  .juego .card-body {
+    padding: 20px !important;
+  }
+
+  .intento {
+    padding: 12px;
+  }
+}
