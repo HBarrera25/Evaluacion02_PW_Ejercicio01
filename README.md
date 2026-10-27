@@ -1,5 +1,14 @@
 # Adivina el número — Evaluación 02, Ejercicio 01
 
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Reactstrap](https://img.shields.io/badge/Reactstrap-563D7C?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+
 Juego web desarrollado por **FluxCode** para Programación Web. El objetivo es descubrir un número misterioso entre **1 y 100**, siguiendo las pistas de cada intento.
 
 ## Equipo FluxCode
@@ -33,7 +42,7 @@ Las partidas y los intentos se guardan en PostgreSQL. El número secreto permane
 ### 1. Clonar el proyecto
 
 ```powershell
-git clone --branch develop https://github.com/HBarrera25/Evaluacion02_PW_Ejercicio01.git
+git clone https://github.com/HBarrera25/Evaluacion02_PW_Ejercicio01.git
 cd Evaluacion02_PW_Ejercicio01
 ```
 
@@ -139,19 +148,42 @@ Para verificar que el frontend compila:
 npm --prefix frontend run build
 ```
 
-## Estructura del proyecto
+## 📁 Estructura del proyecto
 
-- `backend/app.js`: rutas y lógica del juego.
-- `backend/server.js`: inicio del servidor y generación del número inicial.
-- `backend/db.js`: conexión a PostgreSQL.
-- `backend/partidas.repository.js`: persistencia de partidas e intentos.
-- `backend/database.sql`: esquema de las tablas.
-- `backend/scripts/init-db.js`: inicialización de la base de datos.
-- `backend/tests/`: pruebas de la API y de persistencia.
-- `frontend/src/App.jsx`: estado e interfaz principal del juego.
-- `frontend/src/api.js`: comunicación con el backend.
-- `frontend/src/components/`: formulario e historial de intentos.
-- `frontend/src/styles.css`: estilos de la interfaz.
+```text
+Evaluacion02_PW_Ejercicio01/
+├── backend/
+│   ├── scripts/
+│   │   └── init-db.js           # Inicialización de la base de datos y tablas
+│   ├── tests/
+│   │   ├── app.test.js          # Pruebas de las rutas de la API
+│   │   └── database.test.js     # Prueba de persistencia en PostgreSQL
+│   ├── .env.example            # Plantilla de configuración del servidor y BD
+│   ├── app.js                  # Rutas y lógica del juego
+│   ├── server.js               # Inicio del servidor y número secreto inicial
+│   ├── db.js                   # Conexión a PostgreSQL
+│   ├── partidas.repository.js  # Persistencia de partidas e intentos
+│   ├── database.sql            # Esquema de las tablas y restricciones
+│   ├── package.json            # Dependencias y comandos del backend
+│   └── package-lock.json       # Versiones exactas de dependencias del backend
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Formulario.jsx  # Entrada y envío de intentos
+│   │   │   └── Historial.jsx   # Lista dinámica de intentos
+│   │   ├── App.jsx             # Estado e interfaz principal del juego
+│   │   ├── api.js              # Comunicación con el backend
+│   │   ├── main.jsx            # Montaje de React e importación de estilos
+│   │   └── styles.css          # Estilos de la interfaz
+│   ├── index.html              # Página base de la aplicación
+│   ├── vite.config.js          # Configuración de Vite y proxy hacia la API
+│   ├── package.json            # Dependencias y comandos del frontend
+│   └── package-lock.json       # Versiones exactas de dependencias del frontend
+├── .gitignore                  # Archivos excluidos de Git
+├── package.json                # Comandos del proyecto desde la raíz
+├── package-lock.json           # Archivo de bloqueo de npm de la raíz
+└── README.md                   # Presentación y guía del proyecto
+```
 
 ## Rutas de la API
 
