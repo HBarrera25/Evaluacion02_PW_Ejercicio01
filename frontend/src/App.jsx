@@ -132,8 +132,8 @@ export default function App() {
           <h1 className="h2">Adivina el número</h1>
 
           <p className="text-muted">
-            El servidor eligió un número del 1 al 100.
-            ¡Encuéntralo!
+            Hay un número misterioso entre 1 y 100.
+            ¡Sigue las pistas y descúbrelo!
           </p>
 
           <div className="d-flex gap-2 flex-wrap mb-3">
