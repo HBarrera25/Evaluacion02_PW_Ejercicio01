@@ -1,0 +1,17 @@
+{
+  "name": "evaluacion02-juego-adivinanza",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API para un juego de adivinanza con Express y PostgreSQL",
+  "scripts": {
+    "start": "npm --prefix backend start",
+    "dev": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "db:init": "npm --prefix backend run db:init",
+    "test": "npm --prefix backend test",
+    "test:db": "npm --prefix backend run test:db"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
